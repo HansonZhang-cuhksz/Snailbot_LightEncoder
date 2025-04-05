@@ -3,14 +3,14 @@
         {
             "name": "light_encoder",
             "includePath": [
-                "c:\\Users\\shuhan\\OneDrive - CUHK-Shenzhen\\CUHK\\Robotics\\PhotoFrame\\Snailbot_PhotoFix\\light_encoder\\Core\\Inc",
-                "c:\\Users\\shuhan\\OneDrive - CUHK-Shenzhen\\CUHK\\Robotics\\PhotoFrame\\Snailbot_PhotoFix\\light_encoder\\Drivers\\STM32F0xx_HAL_Driver\\Inc",
-                "c:\\Users\\shuhan\\OneDrive - CUHK-Shenzhen\\CUHK\\Robotics\\PhotoFrame\\Snailbot_PhotoFix\\light_encoder\\Drivers\\STM32F0xx_HAL_Driver\\Inc\\Legacy",
-                "c:\\Users\\shuhan\\OneDrive - CUHK-Shenzhen\\CUHK\\Robotics\\PhotoFrame\\Snailbot_PhotoFix\\light_encoder\\Drivers\\CMSIS\\Device\\ST\\STM32F0xx\\Include",
-                "c:\\Users\\shuhan\\OneDrive - CUHK-Shenzhen\\CUHK\\Robotics\\PhotoFrame\\Snailbot_PhotoFix\\light_encoder\\Drivers\\CMSIS\\Include",
-                "c:\\Users\\shuhan\\OneDrive - CUHK-Shenzhen\\CUHK\\Robotics\\PhotoFrame\\Snailbot_PhotoFix\\light_encoder\\MDK-ARM",
-                "c:\\Users\\shuhan\\OneDrive - CUHK-Shenzhen\\CUHK\\Robotics\\PhotoFrame\\Snailbot_PhotoFix\\light_encoder\\Core\\Src",
-                "c:\\Users\\shuhan\\OneDrive - CUHK-Shenzhen\\CUHK\\Robotics\\PhotoFrame\\Snailbot_PhotoFix\\light_encoder\\Drivers\\STM32F0xx_HAL_Driver\\Src"
+                "c:\\Users\\shuhan\\OneDrive - CUHK-Shenzhen\\CUHK\\Robotics\\PhotoFrame\\Snailbot_PhotoFix\\Snailbot_LightEncoder\\Core\\Inc",
+                "c:\\Users\\shuhan\\OneDrive - CUHK-Shenzhen\\CUHK\\Robotics\\PhotoFrame\\Snailbot_PhotoFix\\Snailbot_LightEncoder\\Drivers\\STM32F0xx_HAL_Driver\\Inc",
+                "c:\\Users\\shuhan\\OneDrive - CUHK-Shenzhen\\CUHK\\Robotics\\PhotoFrame\\Snailbot_PhotoFix\\Snailbot_LightEncoder\\Drivers\\STM32F0xx_HAL_Driver\\Inc\\Legacy",
+                "c:\\Users\\shuhan\\OneDrive - CUHK-Shenzhen\\CUHK\\Robotics\\PhotoFrame\\Snailbot_PhotoFix\\Snailbot_LightEncoder\\Drivers\\CMSIS\\Device\\ST\\STM32F0xx\\Include",
+                "c:\\Users\\shuhan\\OneDrive - CUHK-Shenzhen\\CUHK\\Robotics\\PhotoFrame\\Snailbot_PhotoFix\\Snailbot_LightEncoder\\Drivers\\CMSIS\\Include",
+                "c:\\Users\\shuhan\\OneDrive - CUHK-Shenzhen\\CUHK\\Robotics\\PhotoFrame\\Snailbot_PhotoFix\\Snailbot_LightEncoder\\MDK-ARM",
+                "c:\\Users\\shuhan\\OneDrive - CUHK-Shenzhen\\CUHK\\Robotics\\PhotoFrame\\Snailbot_PhotoFix\\Snailbot_LightEncoder\\Core\\Src",
+                "c:\\Users\\shuhan\\OneDrive - CUHK-Shenzhen\\CUHK\\Robotics\\PhotoFrame\\Snailbot_PhotoFix\\Snailbot_LightEncoder\\Drivers\\STM32F0xx_HAL_Driver\\Src"
             ],
             "defines": [
                 "USE_HAL_DRIVER",

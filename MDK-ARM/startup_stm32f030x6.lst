@@ -342,11 +342,11 @@ ARM Macro Assembler    Page 6
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M0 --apcs=interw
 ork --depend=light_encoder\startup_stm32f030x6.d -olight_encoder\startup_stm32f
 030x6.o -I"C:\Users\shuhan\OneDrive - CUHK-Shenzhen\CUHK\Robotics\PhotoFrame\Sn
-ailbot_PhotoFix\light_encoder\MDK-ARM\RTE" -IC:\Arm\Packs\ARM\CMSIS\6.1.0\CMSIS
-\Core\Include -IC:\Arm\Packs\Keil\STM32F0xx_DFP\2.1.1\Drivers\CMSIS\Device\ST\S
-TM32F0xx\Include --predefine="__UVISION_VERSION SETA 514" --predefine="_RTE_ SE
-TA 1" --predefine="STM32F030x6 SETA 1" --list=startup_stm32f030x6.lst startup_s
-tm32f030x6.s
+ailbot_PhotoFix\Snailbot_LightEncoder\MDK-ARM\RTE" -IC:\Arm\Packs\ARM\CMSIS\6.1
+.0\CMSIS\Core\Include -IC:\Arm\Packs\Keil\STM32F0xx_DFP\2.1.1\Drivers\CMSIS\Dev
+ice\ST\STM32F0xx\Include --predefine="__UVISION_VERSION SETA 514" --predefine="
+_RTE_ SETA 1" --predefine="STM32F030x6 SETA 1" --list=startup_stm32f030x6.lst s
+tartup_stm32f030x6.s
 
 
 

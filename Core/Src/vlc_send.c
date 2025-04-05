@@ -1,9 +1,6 @@
 #include "vlc_send.h"
 #include "main.h"
 
-uint8_t curr_bit;
-uint32_t set_bit_activate_count = 0;
-
 typedef struct
 {
 	uint8_t data[256];
@@ -11,8 +8,8 @@ typedef struct
 	uint8_t tail;
 } queue_t;
 
-#define queue_is_empty(queue) (queue->head == queue->tail)
-#define queue_is_full(queue) ((queue->head + 1) % 256 == queue->tail)
+#define queue_is_empty(queue) ((queue)->head == (queue)->tail)
+#define queue_is_full(queue) (((queue)->head + 1) % 256 == (queue)->tail)
 
 void enqueue(queue_t *queue, uint8_t data)
 {
@@ -31,29 +28,18 @@ uint8_t dequeue(queue_t *queue)
 	return data;
 }
 
-queue_t recv_buf_bits;
+queue_t buffer;
 
-uint8_t calculate_even_parity(uint8_t byte)
-{
-    uint8_t parity = 0;
-    uint8_t temp = byte;
-
-    // Calculate the number of 1 bits in the byte
-    while (temp)
-    {
-        parity ^= (temp & 1);
-        temp >>= 1;
-    }
-
-    // If parity is 1, it means the number of 1 bits is odd, so we set the parity bit to 1
-    // If parity is 0, it means the number of 1 bits is even, so we set the parity bit to 0
-    return (byte & 0xFF) | (parity << 8);
-}
+uint8_t calculate_even_parity(uint8_t byte) {
+	uint8_t parity = 0;
+	for (uint8_t i = 0; i < 8; i++) {
+	  parity ^= (byte >> i) & 1;
+	}
+	return parity;
+  }
 
 void set_bit(uint8_t bit)
 {
-	curr_bit = bit;
-	set_bit_activate_count++;
 	if (bit)	// Low duty (bright) cycle for 1, high duty (dark) cycle for 0
 	{
 		__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 1999);
@@ -70,19 +56,24 @@ void set_bit(uint8_t bit)
 	}
 }
 
-void add_byte(uint8_t byte)
-{
-	enqueue(&recv_buf_bits, 0);	// Start bit
-	for (uint8_t i = 0; i < 8; i++)
-	{
-		enqueue(&recv_buf_bits, byte & 1);
-		byte >>= 1;
-	}
-	enqueue(&recv_buf_bits, calculate_even_parity(byte));	// Parity bit
-	enqueue(&recv_buf_bits, 1);	// Stop bit
+void write_bit(uint8_t bit) {
+	enqueue(&buffer, inverse(bit));
 }
 
-uint8_t get_bit(void)
+void add_byte(uint8_t byte)
 {
-	return dequeue(&recv_buf_bits);
+	write_bit(0);
+	for (uint8_t i = 0; i < 8; i++) {
+		write_bit((byte >> i) & 1);
+	}
+	uint8_t even_parity = calculate_even_parity(byte);
+	write_bit(even_parity);
+	write_bit(1);
+}
+
+void vlc_task(void)
+{
+	if (!queue_is_empty(&buffer)) {
+		set_bit(dequeue(&buffer));
+	}
 }

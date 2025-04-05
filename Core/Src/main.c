@@ -79,7 +79,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
         // Handle the received data stored in rxBuffer
         // For example, you can process the data or restart the DMA reception
         HAL_UART_Receive_DMA(&huart1, &rx_buf, 1);
-        add_byte(rx_buf);
+        // add_byte(rx_buf);
     }
 }
 /* USER CODE END 0 */
@@ -121,14 +121,15 @@ int main(void)
   MX_TIM17_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-
+  uint8_t counter = 0;
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    add_byte(0x55);
+    // add_byte(counter++);
+    // HAL_Delay(500);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

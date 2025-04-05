@@ -166,9 +166,9 @@ void TIM17_IRQHandler(void)
   /* USER CODE END TIM17_IRQn 0 */
   HAL_TIM_IRQHandler(&htim17);
   /* USER CODE BEGIN TIM17_IRQn 1 */
-  if (tim17_count % 5 == 0)
+  if (tim17_count % (100 / FREQ) == 0)
   {
-    set_bit(get_bit());
+    vlc_task();
   }
   tim17_count++;
   // set_bit(get_bit());
